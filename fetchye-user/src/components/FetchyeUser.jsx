@@ -3,9 +3,11 @@ import { useFetchye } from 'fetchye';
 import Outline from './Outline';
 import Loading from './Loading';
 
+const LOCAL_IP = '192.168.3.106';
+
 const FetchyeUser = () => {
-  const { isLoading, data } = useFetchye('https://swapi.dev/api/people/1');
-  const { isLoading: isLoadingFilms, data: filmsData } = useFetchye('https://swapi.dev/api/films');
+  const { isLoading, data } = useFetchye(`http://${LOCAL_IP}:8000/user`);
+  const { isLoading: isLoadingFilms, data: filmsData } = useFetchye(`http://${LOCAL_IP}:8000/films`);
   return (
     <div className="container my-2">
       <Outline name="User Micro-Frontend" color="danger">

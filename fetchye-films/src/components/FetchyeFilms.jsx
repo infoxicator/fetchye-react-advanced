@@ -6,8 +6,10 @@ import Films from './Films';
 import Outline from './Outline';
 import Loading from './Loading';
 
+const LOCAL_IP = '192.168.3.106';
+
 const FetchyeFilms = () => {
-  const { isLoading, data } = useFetchye('https://swapi.dev/api/films');
+  const { isLoading, data } = useFetchye(`http://${LOCAL_IP}:8000/films`);
   return (
     <div className="container">
       <Outline name="Films Micro-Frontend">
@@ -29,9 +31,10 @@ const loadModuleData = async ({ store, fetchClient }) => {
 
   const fetchye = makeOneServerFetchye({ store, fetchClient });
 
+  console.log(`http://${LOCAL_IP}:8000/films`);
   await Promise.all([
-    fetchye('https://swapi.dev/api/films'),
-    fetchye('https://swapi.dev/api/people/1'),
+    fetchye(`http://${LOCAL_IP}:8000/films`),
+    fetchye(`http://${LOCAL_IP}:8000/user`),
   ]);
 };
 
