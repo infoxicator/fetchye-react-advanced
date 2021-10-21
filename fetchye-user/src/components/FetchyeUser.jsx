@@ -3,7 +3,7 @@ import { useFetchye } from 'fetchye';
 import Outline from './Outline';
 import Loading from './Loading';
 
-const LOCAL_IP = '192.168.3.106';
+const LOCAL_IP = '192.168.137.101';
 
 const FetchyeUser = () => {
   const { isLoading, data } = useFetchye(`http://${LOCAL_IP}:8000/user`);

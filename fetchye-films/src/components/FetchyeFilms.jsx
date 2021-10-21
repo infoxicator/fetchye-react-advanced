@@ -6,7 +6,7 @@ import Films from './Films';
 import Outline from './Outline';
 import Loading from './Loading';
 
-const LOCAL_IP = '192.168.3.106';
+const LOCAL_IP = '192.168.137.101';
 
 const FetchyeFilms = () => {
   const { isLoading, data } = useFetchye(`http://${LOCAL_IP}:8000/films`);
@@ -31,7 +31,6 @@ const loadModuleData = async ({ store, fetchClient }) => {
 
   const fetchye = makeOneServerFetchye({ store, fetchClient });
 
-  console.log(`http://${LOCAL_IP}:8000/films`);
   await Promise.all([
     fetchye(`http://${LOCAL_IP}:8000/films`),
     fetchye(`http://${LOCAL_IP}:8000/user`),
